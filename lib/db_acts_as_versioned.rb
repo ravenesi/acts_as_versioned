@@ -39,7 +39,7 @@ module ActiveRecord # :nodoc:
     #
     # Example:
     #
-    #   page = Page.create(:title => 'hello world!')
+    #   page = Page.te_te(:title => 'hello world!')
     #   page.version       # => 1
     #
     #   page.title = 'hello world'
@@ -444,7 +444,7 @@ module ActiveRecord # :nodoc:
 
             return if connection.table_exists?(versioned_table_name)
 
-            connection.create_table(versioned_table_name, create_table_options) do |t|
+            connection.create_table(versioned_table_name, **create_table_options) do |t|
               t.column versioned_foreign_key, :integer
               t.column version_column, :integer
             end
